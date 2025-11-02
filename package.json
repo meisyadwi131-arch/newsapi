@@ -4,11 +4,7 @@
   "description": "A simple news portal.",
   "main": "script.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "echo "Error: no test specified" && exit 1"
-=======
     "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> e0911d4 (push)
   },
   "keywords": [],
   "author": "",

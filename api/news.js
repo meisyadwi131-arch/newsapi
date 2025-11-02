@@ -15,8 +15,4 @@ module.exports = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> e0911d4 (push)
