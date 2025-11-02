@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
     const { q } = req.query;
-    const apiKey = process.env.NEWS_API_KEY;
+    const apiKey = process.env.API_KEY;
     const url = `https://newsapi.org/v2/everything?q=${q}&apiKey=${apiKey}`;
 
     try {
