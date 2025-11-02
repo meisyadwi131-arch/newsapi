@@ -3,17 +3,26 @@ $(document).ready(function () {
     const searchInput = $('#search-input');
     const searchButton = $('#search-button');
     const loader = $('#loader');
+    const readMoreBtn = $('#read-more-btn');
+
+    let allArticles = [];
+    let visibleArticlesCount = 0;
+    const articlesPerLoad = 6;
 
     const fetchNews = (query) => {
         loader.removeClass('d-none').addClass('d-flex');
         newsContainer.hide();
+        readMoreBtn.addClass('d-none');
 
         $.ajax({
             url: `/api/news?q=${query}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                displayNews(data.articles);
+                allArticles = data.articles.filter(article => article.title && article.description);
+                visibleArticlesCount = 0;
+                newsContainer.empty();
+                displayNews();
             },
             error: function (error) {
                 console.error("Error fetching news:", error);
@@ -26,19 +35,17 @@ $(document).ready(function () {
         });
     };
 
-    const displayNews = (articles) => {
-        newsContainer.empty();
+    const displayNews = () => {
+        const articlesToDisplay = allArticles.slice(visibleArticlesCount, visibleArticlesCount + articlesPerLoad);
 
-        if (!articles || articles.length === 0) {
+        if (allArticles.length === 0 && visibleArticlesCount === 0) {
             newsContainer.html('<p class="text-center fs-4">Tidak ada berita yang ditemukan.</p>');
+            readMoreBtn.addClass('d-none');
             return;
         }
 
-        articles.forEach(article => {
-            if (!article.title || !article.description) return;
-
+        articlesToDisplay.forEach(article => {
             const placeholderImage = 'https://via.placeholder.com/400x250.png?text=No+Image';
-
             const newsCard = `
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
@@ -53,7 +60,17 @@ $(document).ready(function () {
             `;
             newsContainer.append(newsCard);
         });
+
+        visibleArticlesCount += articlesToDisplay.length;
+
+        if (visibleArticlesCount < allArticles.length) {
+            readMoreBtn.removeClass('d-none');
+        } else {
+            readMoreBtn.addClass('d-none');
+        }
     };
+
+    readMoreBtn.on('click', displayNews);
 
     searchButton.on('click', () => {
         const query = searchInput.val().trim();
