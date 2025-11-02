@@ -12,18 +12,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header-main text-white text-center p-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Dilla News</a>
+            <div class="d-flex ms-auto">
+                <div class="input-group">
+                    <input type="text" id="search-input" class="form-control" placeholder="Cari berita...">
+                    <button id="search-button" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-main text-white text-center p-5">
         <div class="container">
             <h1 class="display-4">Tetap Terinformasi</h1>
             <p class="lead">Berita terbaru dari seluruh dunia, langsung untuk Anda.</p>
-            <div class="row justify-content-center mt-4">
-                <div class="col-md-8">
-                    <div class="input-group">
-                        <input type="text" id="search-input" class="form-control form-control-lg" placeholder="Cari topik, kata kunci, atau berita...">
-                        <button id="search-button" class="btn btn-primary btn-lg"><span>Cari</span> <i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -53,24 +57,24 @@
 
     <footer class="footer-main text-white mt-5 p-5">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Portal Berita</h5>
+                    <h5 class="text-uppercase">Dilla News</h5>
                     <p>Sumber terpercaya untuk berita yang akurat dan terkini.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <h5 class="text-uppercase">Ikuti Kami</h5>
                     <div class="social-icons mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-white"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="my-4">
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 Portal Berita. Semua Hak Cipta Dilindungi.</p>
+                <p class="mb-0">&copy; 2025 Dilla News. Semua Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
