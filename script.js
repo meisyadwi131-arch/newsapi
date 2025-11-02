@@ -50,10 +50,10 @@ $(document).ready(function () {
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="${article.urlToImage || placeholderImage}" class="card-img-top" alt="News Image">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title">${article.title}</h5>
-                            <p class="card-text">${article.description}</p>
-                            <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Baca Selengkapnya</a>
+                            <p class="card-text flex-grow-1">${article.description}</p>
+                            <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto">Baca Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -76,6 +76,7 @@ $(document).ready(function () {
         const query = searchInput.val().trim();
         if (query) {
             fetchNews(query);
+            $('.category-link').removeClass('active');
         }
     });
 
@@ -87,6 +88,8 @@ $(document).ready(function () {
 
     $('.category-link').on('click', function (e) {
         e.preventDefault();
+        $('.category-link').removeClass('active');
+        $(this).addClass('active');
         const category = $(this).data('category');
         fetchNews(category);
     });
